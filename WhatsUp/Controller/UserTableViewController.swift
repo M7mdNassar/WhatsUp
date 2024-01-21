@@ -47,6 +47,13 @@ class UserTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5
     }
+    
+ 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = searchController.isActive ? filterdUsers[indexPath.row] : allUsers[indexPath.row]
+        showUserProfile(user: user)
+        
+    }
 
   
 
@@ -56,15 +63,22 @@ class UserTableViewController: UITableViewController {
 
 extension UserTableViewController{
     func downloadAllUsers(){
-        
         FUserListener.shared.downloadAllUsersFromFirestore { firestoreAllUsers in
             self.allUsers = firestoreAllUsers
             
             self.tableView.reloadData()
-            
         }
-        
     }
+    
+    // Navigation to profile
+    
+    func showUserProfile(user: User){
+        
+        let profileView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "profileController") as! ProfileTableViewController
+        profileView.user = user
+        self.navigationController?.pushViewController(profileView, animated: true)
+    }
+
 }
 
 // MARK: UIScrollView Delegate

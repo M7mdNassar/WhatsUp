@@ -3,7 +3,7 @@ import FirebaseFirestoreSwift    // covert document data to User instance
 import Foundation
 import Firebase
 
-struct User : Codable {
+struct User : Codable , Equatable {
     var id = ""
     var userName : String
     var email : String
@@ -35,6 +35,11 @@ struct User : Codable {
         }
         return nil
     }
+    
+    static func == (lhs: User , rhs: User) -> Bool{
+        lhs.id == rhs.id
+    }
+    
 }
 
 

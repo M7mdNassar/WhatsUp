@@ -126,7 +126,32 @@ class FUserListener{
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             completion(error)
         }
+    
+    }
+    
+    
+    func downloadAllUsersFromFirestore(completion: @escaping (_ allUsers:[User]) -> Void){
+        var users: [User] = []
         
+        FirestoreReference(collectionReference: .User).getDocuments { snapshot, error in
+            
+            guard let documents = snapshot?.documents else{
+                print("No documents found")
+                return
+            }
+            
+            let allUsers = documents.compactMap { (snapshot) -> User? in
+                return try? snapshot.data(as: User.self)
+            }
+            
+            for user in allUsers{
+                if user.id != User.currentId{
+                    users.append(user)
+                }
+            }
+            
+            completion(users)
+        }
         
     }
     

@@ -104,6 +104,9 @@ class SettingsTableViewController: UITableViewController {
         if indexPath.section == 0 && indexPath.row == 0 {
             performSegue(withIdentifier: "settingsToEditProfileSegue", sender: self)
         }
+                
+        tableView.deselectRow(at: indexPath, animated: true)
+
     }
     
 }

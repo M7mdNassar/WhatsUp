@@ -50,3 +50,29 @@ func saveUserLocally(user: User) {
     }
 }
 
+
+
+func createDummyUsers(){
+    print("Creating dummy users")
+    
+    let names = ["Ahmad Qasem" , "Alaa Najmi" , "Oday Nassar" , "Bellingham" , "Modric"]
+    var imageIndex = 1
+    var userIndex = 1
+    for i in 0..<5 {
+        let id = UUID().uuidString
+        let fileDirectory = "Avatars/" + "_\(id)" + ".jpg"
+        
+        FileStorage.uploadImage(UIImage(named: "user\(imageIndex)")!, directory: fileDirectory) { avatarLink in
+            
+            let user = User(id : id , userName: names[i], email: "user\(userIndex)@mail.com",pushId: "" , avatarLink: avatarLink ?? "",status: "No Status")
+            
+            userIndex += 1
+            FUserListener.shared.saveUserToFierbase(user: user)
+        }
+        imageIndex += 1
+        if imageIndex == 5{
+            imageIndex = 1
+        }
+    }
+}
+

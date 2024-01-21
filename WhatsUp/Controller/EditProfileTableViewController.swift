@@ -19,9 +19,12 @@ class EditProfileTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showUserInfo()
         configureTextFields()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        showUserInfo()
     }
 
     
@@ -78,6 +81,15 @@ class EditProfileTableViewController: UITableViewController {
      
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         CGFloat.leastNonzeroMagnitude
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 2 && indexPath.row == 0{
+            performSegue(withIdentifier: "goToStatuses", sender: self)
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+
     }
     
  

@@ -12,6 +12,9 @@
 		0493CA202B5AB0610095B2BC /* Constents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493CA1F2B5AB0610095B2BC /* Constents.swift */; };
 		0493CA222B5AB0830095B2BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493CA212B5AB0830095B2BC /* User.swift */; };
 		0493CA252B5AB3090095B2BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0493CA242B5AB3090095B2BC /* GoogleService-Info.plist */; };
+		04ACD9BE2B5D1F1B00C9EB11 /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9BD2B5D1F1B00C9EB11 /* StatusTableViewController.swift */; };
+		04ACD9C22B5D3B8C00C9EB11 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9C12B5D3B8C00C9EB11 /* UserTableViewCell.swift */; };
+		04ACD9C42B5D3BBB00C9EB11 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9C32B5D3BBB00C9EB11 /* UserTableViewController.swift */; };
 		04D943142B5BC200004C652F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D943132B5BC200004C652F /* SettingsTableViewController.swift */; };
 		04D9431A2B5BF583004C652F /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D943192B5BF583004C652F /* EditProfileTableViewController.swift */; };
 		04D9431C2B5C1D99004C652F /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D9431B2B5C1D99004C652F /* FileStorage.swift */; };
@@ -53,6 +56,9 @@
 		0493CA1F2B5AB0610095B2BC /* Constents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constents.swift; sourceTree = "<group>"; };
 		0493CA212B5AB0830095B2BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0493CA242B5AB3090095B2BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04ACD9BD2B5D1F1B00C9EB11 /* StatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
+		04ACD9C12B5D3B8C00C9EB11 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		04ACD9C32B5D3BBB00C9EB11 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		04D943132B5BC200004C652F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		04D943192B5BF583004C652F /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		04D9431B2B5C1D99004C652F /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
@@ -128,6 +134,9 @@
 				9A35A5352502D991000AD4FE /* LoginViewController.swift */,
 				04D943132B5BC200004C652F /* SettingsTableViewController.swift */,
 				04D943192B5BF583004C652F /* EditProfileTableViewController.swift */,
+				04ACD9BD2B5D1F1B00C9EB11 /* StatusTableViewController.swift */,
+				04ACD9C12B5D3B8C00C9EB11 /* UserTableViewCell.swift */,
+				04ACD9C32B5D3BBB00C9EB11 /* UserTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -478,6 +487,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D9431E2B5C3D68004C652F /* GlobalFunctions.swift in Sources */,
+				04ACD9BE2B5D1F1B00C9EB11 /* StatusTableViewController.swift in Sources */,
+				04ACD9C22B5D3B8C00C9EB11 /* UserTableViewCell.swift in Sources */,
 				9A35A5362502D991000AD4FE /* LoginViewController.swift in Sources */,
 				04D9431C2B5C1D99004C652F /* FileStorage.swift in Sources */,
 				0493CA202B5AB0610095B2BC /* Constents.swift in Sources */,
@@ -485,6 +496,7 @@
 				0493CA1C2B5AB0020095B2BC /* FCollectionReference.swift in Sources */,
 				04D943142B5BC200004C652F /* SettingsTableViewController.swift in Sources */,
 				04D943202B5C51BE004C652F /* Extensions.swift in Sources */,
+				04ACD9C42B5D3BBB00C9EB11 /* UserTableViewController.swift in Sources */,
 				04D9431A2B5BF583004C652F /* EditProfileTableViewController.swift in Sources */,
 				0493CA1E2B5AB0340095B2BC /* FUserListener.swift in Sources */,
 				9A35A5342502D991000AD4FE /* SceneDelegate.swift in Sources */,

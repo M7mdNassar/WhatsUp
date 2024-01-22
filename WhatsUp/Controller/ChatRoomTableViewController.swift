@@ -1,5 +1,4 @@
 
-
 import UIKit
 
 class ChatRoomTableViewController: UITableViewController {
@@ -77,10 +76,23 @@ class ChatRoomTableViewController: UITableViewController {
             
             FChatRoomListener.shared.deleteChatRoom(chatRoom: chatRoom)
             
-            searchController.isActive ? self.filterdChatRooms.remove(at: indexPath.row) : allChatRooms.remove(at: indexPath.row)
+            if searchController.isActive{
+                self.filterdChatRooms.remove(at: indexPath.row)
+            }else{
+                self.allChatRooms.remove(at: indexPath.row)
+            }
             
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let chatRoomObject = searchController.isActive ? filterdChatRooms[indexPath.row] : allChatRooms[indexPath.row]
+        
+        goToChat(chatRoomObject)
+        
     }
     
     func downloadChatRooms(){
@@ -93,6 +105,19 @@ class ChatRoomTableViewController: UITableViewController {
         }
     }
 
+    
+    
+    
+    func goToChat(_ chatRoom :ChatRoom){
+        
+        
+        // i can not ensure the other user kkep the room and not delete it, 
+        // so , i need create method like startChat in helper and here call it
+        restartChat(chatRoomId: chatRoom.id, memberIds: chatRoom.memberIds)
+        let chatView = MSGViewController(chatId: chatRoom.id, recipientId: chatRoom.receiverId, recipientName: chatRoom.receiverName)
+        navigationController?.pushViewController(chatView, animated: true)
+        
+    }
 }
 
 

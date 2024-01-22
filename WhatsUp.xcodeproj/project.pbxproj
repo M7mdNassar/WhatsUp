@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		046F1CA42B5D98D2003AD2BF /* Startchat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1CA32B5D98D2003AD2BF /* Startchat.swift */; };
 		046F1CA62B5DA036003AD2BF /* FChatRoomListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1CA52B5DA036003AD2BF /* FChatRoomListener.swift */; };
+		046FFB922B5E707200919FD4 /* MSGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB912B5E707200919FD4 /* MSGViewController.swift */; };
+		046FFB942B5E861F00919FD4 /* LocalMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB932B5E861F00919FD4 /* LocalMessage.swift */; };
+		046FFB972B5E9C2900919FD4 /* MessagesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB962B5E9C2900919FD4 /* MessagesDataSource.swift */; };
+		046FFB992B5E9C7000919FD4 /* MessagesLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB982B5E9C7000919FD4 /* MessagesLayoutDelegate.swift */; };
+		046FFB9B2B5E9C8300919FD4 /* MessageCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB9A2B5E9C8300919FD4 /* MessageCellDelegate.swift */; };
+		046FFB9D2B5E9C9300919FD4 /* MessagesDisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB9C2B5E9C9300919FD4 /* MessagesDisplayDelegate.swift */; };
+		046FFB9F2B5E9CD000919FD4 /* InputBarAccessoryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFB9E2B5E9CD000919FD4 /* InputBarAccessoryViewDelegate.swift */; };
+		046FFBA12B5EA22900919FD4 /* MKSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFBA02B5EA22900919FD4 /* MKSender.swift */; };
+		046FFBA32B5EA36A00919FD4 /* MKMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFBA22B5EA36A00919FD4 /* MKMessage.swift */; };
+		046FFBA52B5EAEF000919FD4 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFBA42B5EAEF000919FD4 /* RealmManager.swift */; };
+		046FFBA72B5EAFCE00919FD4 /* FMessageListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFBA62B5EAFCE00919FD4 /* FMessageListener.swift */; };
+		046FFBA92B5EB2CF00919FD4 /* Outgoing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FFBA82B5EB2CF00919FD4 /* Outgoing.swift */; };
 		0493CA1C2B5AB0020095B2BC /* FCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493CA1B2B5AB0020095B2BC /* FCollectionReference.swift */; };
 		0493CA1E2B5AB0340095B2BC /* FUserListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493CA1D2B5AB0340095B2BC /* FUserListener.swift */; };
 		0493CA202B5AB0610095B2BC /* Constents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493CA1F2B5AB0610095B2BC /* Constents.swift */; };
@@ -59,6 +71,18 @@
 /* Begin PBXFileReference section */
 		046F1CA32B5D98D2003AD2BF /* Startchat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Startchat.swift; sourceTree = "<group>"; };
 		046F1CA52B5DA036003AD2BF /* FChatRoomListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FChatRoomListener.swift; sourceTree = "<group>"; };
+		046FFB912B5E707200919FD4 /* MSGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSGViewController.swift; sourceTree = "<group>"; };
+		046FFB932B5E861F00919FD4 /* LocalMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMessage.swift; sourceTree = "<group>"; };
+		046FFB962B5E9C2900919FD4 /* MessagesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDataSource.swift; sourceTree = "<group>"; };
+		046FFB982B5E9C7000919FD4 /* MessagesLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesLayoutDelegate.swift; sourceTree = "<group>"; };
+		046FFB9A2B5E9C8300919FD4 /* MessageCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellDelegate.swift; sourceTree = "<group>"; };
+		046FFB9C2B5E9C9300919FD4 /* MessagesDisplayDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDisplayDelegate.swift; sourceTree = "<group>"; };
+		046FFB9E2B5E9CD000919FD4 /* InputBarAccessoryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBarAccessoryViewDelegate.swift; sourceTree = "<group>"; };
+		046FFBA02B5EA22900919FD4 /* MKSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKSender.swift; sourceTree = "<group>"; };
+		046FFBA22B5EA36A00919FD4 /* MKMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMessage.swift; sourceTree = "<group>"; };
+		046FFBA42B5EAEF000919FD4 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		046FFBA62B5EAFCE00919FD4 /* FMessageListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMessageListener.swift; sourceTree = "<group>"; };
+		046FFBA82B5EB2CF00919FD4 /* Outgoing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outgoing.swift; sourceTree = "<group>"; };
 		0493CA1B2B5AB0020095B2BC /* FCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCollectionReference.swift; sourceTree = "<group>"; };
 		0493CA1D2B5AB0340095B2BC /* FUserListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUserListener.swift; sourceTree = "<group>"; };
 		0493CA1F2B5AB0610095B2BC /* Constents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constents.swift; sourceTree = "<group>"; };
@@ -129,12 +153,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		046FFB952B5E9BFE00919FD4 /* MSG Controller Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				046FFB962B5E9C2900919FD4 /* MessagesDataSource.swift */,
+				046FFB982B5E9C7000919FD4 /* MessagesLayoutDelegate.swift */,
+				046FFB9A2B5E9C8300919FD4 /* MessageCellDelegate.swift */,
+				046FFB9C2B5E9C9300919FD4 /* MessagesDisplayDelegate.swift */,
+				046FFB9E2B5E9CD000919FD4 /* InputBarAccessoryViewDelegate.swift */,
+			);
+			path = "MSG Controller Extensions";
+			sourceTree = "<group>";
+		};
 		0493CA232B5AB08A0095B2BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				0493CA212B5AB0830095B2BC /* User.swift */,
 				04D9431B2B5C1D99004C652F /* FileStorage.swift */,
 				04ACD9C72B5D838C00C9EB11 /* ChatRoom.swift */,
+				046FFB932B5E861F00919FD4 /* LocalMessage.swift */,
+				046FFBA02B5EA22900919FD4 /* MKSender.swift */,
+				046FFBA22B5EA36A00919FD4 /* MKMessage.swift */,
+				046FFBA42B5EAEF000919FD4 /* RealmManager.swift */,
+				046FFBA82B5EB2CF00919FD4 /* Outgoing.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +183,7 @@
 		04D943152B5BE89E004C652F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				046FFB952B5E9BFE00919FD4 /* MSG Controller Extensions */,
 				9A35A5312502D991000AD4FE /* AppDelegate.swift */,
 				9A35A5332502D991000AD4FE /* SceneDelegate.swift */,
 				9A35A5352502D991000AD4FE /* LoginViewController.swift */,
@@ -153,6 +195,7 @@
 				04ACD9C52B5D6C5600C9EB11 /* ProfileTableViewController.swift */,
 				04ACD9C92B5D8E2A00C9EB11 /* ChatTableViewCell.swift */,
 				04ACD9CB2B5D94FF00C9EB11 /* ChatRoomTableViewController.swift */,
+				046FFB912B5E707200919FD4 /* MSGViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,8 +225,9 @@
 			children = (
 				0493CA1B2B5AB0020095B2BC /* FCollectionReference.swift */,
 				0493CA1D2B5AB0340095B2BC /* FUserListener.swift */,
-				0493CA242B5AB3090095B2BC /* GoogleService-Info.plist */,
 				046F1CA52B5DA036003AD2BF /* FChatRoomListener.swift */,
+				0493CA242B5AB3090095B2BC /* GoogleService-Info.plist */,
+				046FFBA62B5EAFCE00919FD4 /* FMessageListener.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -506,9 +550,12 @@
 			files = (
 				04D9431E2B5C3D68004C652F /* GlobalFunctions.swift in Sources */,
 				04ACD9BE2B5D1F1B00C9EB11 /* StatusTableViewController.swift in Sources */,
+				046FFBA72B5EAFCE00919FD4 /* FMessageListener.swift in Sources */,
 				04ACD9C22B5D3B8C00C9EB11 /* UserTableViewCell.swift in Sources */,
 				04ACD9CA2B5D8E2A00C9EB11 /* ChatTableViewCell.swift in Sources */,
 				046F1CA62B5DA036003AD2BF /* FChatRoomListener.swift in Sources */,
+				046FFB9F2B5E9CD000919FD4 /* InputBarAccessoryViewDelegate.swift in Sources */,
+				046FFBA92B5EB2CF00919FD4 /* Outgoing.swift in Sources */,
 				9A35A5362502D991000AD4FE /* LoginViewController.swift in Sources */,
 				04D9431C2B5C1D99004C652F /* FileStorage.swift in Sources */,
 				0493CA202B5AB0610095B2BC /* Constents.swift in Sources */,
@@ -517,14 +564,23 @@
 				9A35A5322502D991000AD4FE /* AppDelegate.swift in Sources */,
 				0493CA1C2B5AB0020095B2BC /* FCollectionReference.swift in Sources */,
 				04D943142B5BC200004C652F /* SettingsTableViewController.swift in Sources */,
+				046FFB972B5E9C2900919FD4 /* MessagesDataSource.swift in Sources */,
+				046FFB942B5E861F00919FD4 /* LocalMessage.swift in Sources */,
+				046FFB992B5E9C7000919FD4 /* MessagesLayoutDelegate.swift in Sources */,
 				04D943202B5C51BE004C652F /* Extensions.swift in Sources */,
+				046FFB922B5E707200919FD4 /* MSGViewController.swift in Sources */,
 				04ACD9C42B5D3BBB00C9EB11 /* UserTableViewController.swift in Sources */,
 				04ACD9C82B5D838C00C9EB11 /* ChatRoom.swift in Sources */,
 				04D9431A2B5BF583004C652F /* EditProfileTableViewController.swift in Sources */,
 				0493CA1E2B5AB0340095B2BC /* FUserListener.swift in Sources */,
+				046FFB9B2B5E9C8300919FD4 /* MessageCellDelegate.swift in Sources */,
+				046FFBA12B5EA22900919FD4 /* MKSender.swift in Sources */,
+				046FFBA52B5EAEF000919FD4 /* RealmManager.swift in Sources */,
+				046FFB9D2B5E9C9300919FD4 /* MessagesDisplayDelegate.swift in Sources */,
 				04ACD9CC2B5D94FF00C9EB11 /* ChatRoomTableViewController.swift in Sources */,
 				9A35A5342502D991000AD4FE /* SceneDelegate.swift in Sources */,
 				0493CA222B5AB0830095B2BC /* User.swift in Sources */,
+				046FFBA32B5EA36A00919FD4 /* MKMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

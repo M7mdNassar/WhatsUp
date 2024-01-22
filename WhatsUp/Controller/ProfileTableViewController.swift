@@ -50,6 +50,12 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1{
             let chatId = startChat(sender: User.currentUser!, reciver: user!)
+            
+            // here h sure the sender & reciver have chatrooms +
+            // i can use the above chatId bcoz start chat method .. return the reciver
+            let msgView = MSGViewController(chatId: chatId, recipientId: user!.id, recipientName: user!.userName)
+            navigationController?.pushViewController(msgView, animated: true)
+            
         }
     }
     

@@ -13,3 +13,10 @@ public let kPHOTO = "photo"
 public let kVIDEO = "video"
 public let kAUDIO = "audio"
 public let kLOCATION = "location"
+
+public let kDATE = "date"
+public let kNUMBEROFMESSEGES = 12
+
+
+public let kSTATUS = "status"
+public let kREADDATE = "readDate"

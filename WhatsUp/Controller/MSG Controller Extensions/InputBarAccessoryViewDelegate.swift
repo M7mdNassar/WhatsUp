@@ -5,6 +5,12 @@ extension MSGViewController: InputBarAccessoryViewDelegate{
     
     func inputBar(_ inputBar: InputBarAccessoryView, textViewTextDidChangeTo text: String) {
         
+        updateMicButtonStatus(show: text == "")
+        
+        if text != ""{
+            startTypingIndicator()
+        }
+
         
     }
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {

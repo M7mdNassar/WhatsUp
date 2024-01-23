@@ -9,7 +9,7 @@ class LocalMessage : Object , Codable{
     @objc dynamic var date = Date()
     @objc dynamic var senderName = ""
     @objc dynamic var senderId = ""
-    @objc dynamic var senderinitials = ""
+    @objc dynamic var senderInitials = ""
     @objc dynamic var readDate = Date()
     @objc dynamic var type = ""
     @objc dynamic var status = ""

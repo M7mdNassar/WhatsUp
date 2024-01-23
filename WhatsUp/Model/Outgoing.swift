@@ -18,7 +18,7 @@ class Outgoing{
         message.chatRoomId = chatId
         message.senderId = currentUser.id
         message.senderName = currentUser.userName
-        message.senderinitials = String(currentUser.userName.first!)
+        message.senderInitials = String(currentUser.userName.first!)
         message.date = Date()
         message.status = kSENT
         
@@ -44,7 +44,10 @@ class Outgoing{
         
         
         // MARK: send notifcation
+        
+        
         //update chatroom
+        FChatRoomListener.shared.updateChatRoom(chatRoomId: chatId, lastMessage: message.message)
     }
     
     class func saveMessage(message: LocalMessage , memberIds:[String]){

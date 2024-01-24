@@ -108,7 +108,7 @@ class FileStorage{
             if videoUrl != ""{
                 
                 let documentUrl = URL(string: videoUrl)
-                let downloadQueue = DispatchQueue (label: "imageDownloadQueue")
+                let downloadQueue = DispatchQueue (label: "videoDownloadQueue")
                 
                 downloadQueue.async {
                     let data = NSData(contentsOf: documentUrl!)
@@ -167,6 +167,97 @@ class FileStorage{
         }
         
     }
+    
+    // MARK: upload audio
+    
+    class func uploadAudio (_ audioFileName: String , directory: String , completion: @escaping (_ audioLink: String?) -> Void){
+        
+        // 1. create folder on firestore
+        let fileName = audioFileName + ".m4a"
+        let storageRef = storage.reference(forURL: kSTORAGEFILE).child(directory)
+        
+  
+        //3. put the data into firebase and retrive the link
+        var task:StorageUploadTask!
+        
+        if fileExistsPath(path: fileName){
+            if let audioData = NSData(contentsOfFile: fileInDocumentsDirectory(fileName: fileName)){
+                
+                task = storageRef.putData(audioData as Data, metadata: nil, completion: { metaData, error in
+                    task.removeAllObservers()
+                    ProgressHUD.dismiss()
+                    
+                    if error != nil{
+                        print("Error uploading audio \(error!.localizedDescription)")
+                        return
+                    }
+                    
+                    storageRef.downloadURL { (url, error) in
+                        guard let downloadUrl = url else {
+                            completion(nil)
+                            return
+                        }
+                        
+                        completion(downloadUrl.absoluteString)
+                    }
+                    
+                })
+                //4. observe the persentage upload
+                task.observe(StorageTaskStatus.progress) { snapshot in
+                    let progress = snapshot.progress!.completedUnitCount / snapshot.progress!.totalUnitCount
+                    
+                    ProgressHUD.progress(CGFloat(progress))
+                }
+                
+            }
+            
+            
+        }else{
+            
+            print("Nothing to upload, or file does not exist")
+        }
+       
+        
+    }
+    
+    
+    
+    class func downloadAudio(audioUrl: String, completion: @escaping (_ audioFileName: String) -> Void) {
+        
+        
+        
+        let audioFileName = fileNameFrom(fileUrl: audioUrl) + ".m4a"
+        
+        if fileExistsPath(path: audioFileName) {
+            completion(audioFileName)
+            
+        } else {
+            
+            if audioUrl != ""{
+                
+                let documentUrl = URL(string: audioUrl)
+                let downloadQueue = DispatchQueue (label: "audioDownloadQueue")
+                
+                downloadQueue.async {
+                    let data = NSData(contentsOf: documentUrl!)
+                    if data != nil {
+                        FileStorage.saveFileLocally(fileData: data!, fileName: audioFileName)
+                        DispatchQueue.main.async {
+                            completion(audioFileName)
+                        }
+                    }
+                    
+                }
+                
+            }
+            else {
+                print("No document found in the database")
+                
+            }
+        }
+    }
+    
+    
     
     
     // save file locally

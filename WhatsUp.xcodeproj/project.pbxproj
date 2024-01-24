@@ -41,6 +41,10 @@
 		04B5A8922B6148DA00F54031 /* LocationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A8912B6148DA00F54031 /* LocationMessage.swift */; };
 		04B5A8942B614F9300F54031 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A8932B614F9300F54031 /* MapViewController.swift */; };
 		04B5A8962B61550F00F54031 /* MapAnnotiation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A8952B61550F00F54031 /* MapAnnotiation.swift */; };
+		04B5A8982B617C5D00F54031 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A8972B617C5D00F54031 /* AudioRecorder.swift */; };
+		04B5A89A2B619B1800F54031 /* AudioMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A8992B619B1800F54031 /* AudioMessage.swift */; };
+		04B5A89C2B61A0E100F54031 /* BasicAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A89B2B61A0E100F54031 /* BasicAudioController.swift */; };
+		04B5A89E2B61A8A600F54031 /* ChannelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A89D2B61A8A600F54031 /* ChannelsTableViewController.swift */; };
 		04D943142B5BC200004C652F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D943132B5BC200004C652F /* SettingsTableViewController.swift */; };
 		04D9431A2B5BF583004C652F /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D943192B5BF583004C652F /* EditProfileTableViewController.swift */; };
 		04D9431C2B5C1D99004C652F /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D9431B2B5C1D99004C652F /* FileStorage.swift */; };
@@ -111,6 +115,10 @@
 		04B5A8912B6148DA00F54031 /* LocationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMessage.swift; sourceTree = "<group>"; };
 		04B5A8932B614F9300F54031 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		04B5A8952B61550F00F54031 /* MapAnnotiation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotiation.swift; sourceTree = "<group>"; };
+		04B5A8972B617C5D00F54031 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		04B5A8992B619B1800F54031 /* AudioMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessage.swift; sourceTree = "<group>"; };
+		04B5A89B2B61A0E100F54031 /* BasicAudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAudioController.swift; sourceTree = "<group>"; };
+		04B5A89D2B61A8A600F54031 /* ChannelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableViewController.swift; sourceTree = "<group>"; };
 		04D943132B5BC200004C652F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		04D943192B5BF583004C652F /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		04D9431B2B5C1D99004C652F /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
@@ -196,6 +204,8 @@
 				04B5A88C2B6132AD00F54031 /* Media Messages */,
 				04B5A88F2B61403A00F54031 /* LocationManager.swift */,
 				04B5A8952B61550F00F54031 /* MapAnnotiation.swift */,
+				04B5A8972B617C5D00F54031 /* AudioRecorder.swift */,
+				04B5A89B2B61A0E100F54031 /* BasicAudioController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +216,7 @@
 				04B5A88A2B61179B00F54031 /* PhotoMessage.swift */,
 				04B5A88D2B6132CB00F54031 /* VideoMessage.swift */,
 				04B5A8912B6148DA00F54031 /* LocationMessage.swift */,
+				04B5A8992B619B1800F54031 /* AudioMessage.swift */,
 			);
 			path = "Media Messages";
 			sourceTree = "<group>";
@@ -227,6 +238,7 @@
 				04ACD9CB2B5D94FF00C9EB11 /* ChatRoomTableViewController.swift */,
 				046FFB912B5E707200919FD4 /* MSGViewController.swift */,
 				04B5A8932B614F9300F54031 /* MapViewController.swift */,
+				04B5A89D2B61A8A600F54031 /* ChannelsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -585,6 +597,7 @@
 				04A502AF2B6050C20093DECE /* FtypingListener.swift in Sources */,
 				046FFBA72B5EAFCE00919FD4 /* FMessageListener.swift in Sources */,
 				04ACD9C22B5D3B8C00C9EB11 /* UserTableViewCell.swift in Sources */,
+				04B5A89C2B61A0E100F54031 /* BasicAudioController.swift in Sources */,
 				04ACD9CA2B5D8E2A00C9EB11 /* ChatTableViewCell.swift in Sources */,
 				046F1CA62B5DA036003AD2BF /* FChatRoomListener.swift in Sources */,
 				046FFB9F2B5E9CD000919FD4 /* InputBarAccessoryViewDelegate.swift in Sources */,
@@ -598,6 +611,7 @@
 				9A35A5322502D991000AD4FE /* AppDelegate.swift in Sources */,
 				0493CA1C2B5AB0020095B2BC /* FCollectionReference.swift in Sources */,
 				04D943142B5BC200004C652F /* SettingsTableViewController.swift in Sources */,
+				04B5A89E2B61A8A600F54031 /* ChannelsTableViewController.swift in Sources */,
 				046FFB972B5E9C2900919FD4 /* MessagesDataSource.swift in Sources */,
 				046FFB942B5E861F00919FD4 /* LocalMessage.swift in Sources */,
 				046FFB992B5E9C7000919FD4 /* MessagesLayoutDelegate.swift in Sources */,
@@ -608,6 +622,7 @@
 				04B5A88E2B6132CB00F54031 /* VideoMessage.swift in Sources */,
 				04ACD9C82B5D838C00C9EB11 /* ChatRoom.swift in Sources */,
 				04D9431A2B5BF583004C652F /* EditProfileTableViewController.swift in Sources */,
+				04B5A89A2B619B1800F54031 /* AudioMessage.swift in Sources */,
 				0493CA1E2B5AB0340095B2BC /* FUserListener.swift in Sources */,
 				046FFB9B2B5E9C8300919FD4 /* MessageCellDelegate.swift in Sources */,
 				04B5A8922B6148DA00F54031 /* LocationMessage.swift in Sources */,
@@ -616,6 +631,7 @@
 				04B5A8962B61550F00F54031 /* MapAnnotiation.swift in Sources */,
 				046FFB9D2B5E9C9300919FD4 /* MessagesDisplayDelegate.swift in Sources */,
 				04ACD9CC2B5D94FF00C9EB11 /* ChatRoomTableViewController.swift in Sources */,
+				04B5A8982B617C5D00F54031 /* AudioRecorder.swift in Sources */,
 				04B5A88B2B61179B00F54031 /* PhotoMessage.swift in Sources */,
 				9A35A5342502D991000AD4FE /* SceneDelegate.swift in Sources */,
 				0493CA222B5AB0830095B2BC /* User.swift in Sources */,

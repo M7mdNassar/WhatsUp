@@ -59,6 +59,13 @@ class MSGViewController: MessagesViewController{
     
     var gallery: GalleryController!
     
+    var longPressGesture : UILongPressGestureRecognizer!
+    
+    var audioFileName: String = ""
+    var audioStartTime: Date = Date()
+    
+    open lazy var audioController = BasicAudioController(messageCollectionView: messagesCollectionView)
+    
     // MARK: Init
     
     init(chatId: String = "", recipientId: String = "", recipientName: String = "") {
@@ -78,16 +85,20 @@ class MSGViewController: MessagesViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCustomTitle()
+        configureGestureRecognizer()
         
         configureMessageCollection()
         configureMessageInputBar()
+        
 
+        
         //all messgaes from local db , but this called just when view load , after load not call , so we need notification
         loadMessages()
         listenForNewMessages()
         listenForReadStatusUpdates()
         
         createTypingObserver()
+        
         
         
         
@@ -124,7 +135,7 @@ class MSGViewController: MessagesViewController{
         micButton.setSize(CGSize(width: 30, height: 30), animated: false)
         
         //add gesture recognizer
-        
+        micButton.addGestureRecognizer(longPressGesture)
         messageInputBar.setStackViewItems([attachButton], forStack: .left, animated: false)
         messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
         
@@ -133,6 +144,12 @@ class MSGViewController: MessagesViewController{
         messageInputBar.inputTextView.isImagePasteEnabled = false
         messageInputBar.backgroundView.backgroundColor = .systemBackground
         messageInputBar.inputTextView.backgroundColor = .systemBackground
+    }
+    
+    // MARK: Long Press Gesture
+    
+    private func configureGestureRecognizer(){
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(recordAndSend))
     }
     
     
@@ -219,6 +236,31 @@ class MSGViewController: MessagesViewController{
         // code for print the local database
 //        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
+    }
+    // MARK: Record AND SEND
+    @objc func recordAndSend(){
+        switch longPressGesture.state {
+      
+        case .began:
+            //record and start recording
+            audioFileName = Date().stringDate()
+            audioStartTime = Date()
+            AudioRecorder.shared.startRecording(fileName: audioFileName)
+        case .ended:
+            //stop and send
+            AudioRecorder.shared.finishRecording()
+            if fileExistsPath(path: audioFileName + ".m4a"){
+                let audioDuration = audioStartTime.interval(ofComponent: .second, to: Date())
+                
+                send(text: nil, photo: nil, video: nil, audioUrl: audioFileName, location: nil, audioDuration: audioDuration)
+            }
+            
+        @unknown default:
+            print("UnKnown")
+       
+        }
+
+
     }
     
     

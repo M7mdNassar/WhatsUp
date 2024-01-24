@@ -35,7 +35,8 @@ class Outgoing{
             sendVideo(message: message, video: video!, memberIds: memberIds)
         }
         if audioUrl != nil{
-            //to do function for send audio
+            //function for send audio
+            sendAudio(message: message, audioFileName: audioUrl!, audioDuration: audioDuration, memberIds: memberIds)
         }
         if location != nil{
             //function for send location
@@ -136,4 +137,33 @@ func sendLocation(message: LocalMessage , memberIds: [String]){
     message.longitude = currentLocation?.longitude ?? 0.0
     
     Outgoing.saveMessage(message: message, memberIds: memberIds)
+}
+
+func sendAudio(message: LocalMessage , audioFileName: String , audioDuration : Float , memberIds:[String]){
+    
+    message.message = "Audio message"
+    message.type = kAUDIO
+    
+    
+    let fileDirectory = "MediaMessage/Audio/" + "\(message.chatRoomId)" + "_\(audioFileName)" + ".m4a"
+    
+    FileStorage.uploadAudio(audioFileName, directory: fileDirectory) { audioLink in
+        if audioLink != nil{
+            message.audioUrl = audioLink ?? ""
+            message.audioDuration = Double(audioDuration)
+            
+            Outgoing.saveMessage(message: message, memberIds: memberIds)
+            
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

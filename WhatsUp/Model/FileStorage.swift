@@ -89,8 +89,84 @@ class FileStorage{
             }
         }
     }
-
     
+    
+    // MARK: download video
+    
+    
+    class func downloadVideo(videoUrl: String, completion: @escaping (_ isReadyToPlay: Bool , _ videoFileName: String) -> Void) {
+        
+        
+        
+        let videoFileName = fileNameFrom(fileUrl: videoUrl) + ".mov"
+        
+        if fileExistsPath(path: videoFileName) {
+            completion(true , videoFileName)
+            
+        } else {
+            
+            if videoUrl != ""{
+                
+                let documentUrl = URL(string: videoUrl)
+                let downloadQueue = DispatchQueue (label: "imageDownloadQueue")
+                
+                downloadQueue.async {
+                    let data = NSData(contentsOf: documentUrl!)
+                    if data != nil {
+                        FileStorage.saveFileLocally(fileData: data!, fileName: videoFileName)
+                        DispatchQueue.main.async {
+                            completion(true , videoFileName)
+                        }
+                    }
+                    
+                }
+                
+            }
+            else {
+                print("No document found in the database")
+                
+            }
+        }
+    }
+
+
+    // MARK: uplaod Video
+    
+    class func uploadVideo (_ video: NSData , directory: String , completion: @escaping (_ videoLink: String?) -> Void){
+        
+        // 1. create folder on firestore
+        let storageRef = storage.reference(forURL: kSTORAGEFILE).child(directory)
+        
+        //2. put the data into firebase and retrive the link
+        var task:StorageUploadTask!
+        
+        task = storageRef.putData(video as Data, metadata: nil, completion: { metaData, error in
+            task.removeAllObservers()
+            ProgressHUD.dismiss()
+            
+            if error != nil{
+                print("Error uploading image \(error!.localizedDescription)")
+                return
+            }
+            
+            storageRef.downloadURL { (url, error) in
+                guard let downloadUrl = url else {
+                    completion(nil)
+                    return
+                }
+                
+                completion(downloadUrl.absoluteString)
+            }
+            
+        })
+        //4. observe the persentage upload
+        task.observe(StorageTaskStatus.progress) { snapshot in
+            let progress = snapshot.progress!.completedUnitCount / snapshot.progress!.totalUnitCount
+            
+            ProgressHUD.progress(CGFloat(progress))
+        }
+        
+    }
     
     
     // save file locally

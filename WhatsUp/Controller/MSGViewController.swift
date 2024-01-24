@@ -57,6 +57,8 @@ class MSGViewController: MessagesViewController{
     
     var typingCounter = 0
     
+    var gallery: GalleryController!
+    
     // MARK: Init
     
     init(chatId: String = "", recipientId: String = "", recipientName: String = "") {
@@ -83,7 +85,7 @@ class MSGViewController: MessagesViewController{
         //all messgaes from local db , but this called just when view load , after load not call , so we need notification
         loadMessages()
         listenForNewMessages()
-        
+        listenForReadStatusUpdates()
         
         createTypingObserver()
         
@@ -114,9 +116,7 @@ class MSGViewController: MessagesViewController{
         
         attachButton.setSize(CGSize(width: 30, height: 30), animated: false)
         attachButton.onTouchUpInside { item in
-            print("attaching")
-            
-            // to do attactch action
+            self.actionAttachMessage()
         }
         
         
@@ -155,6 +155,16 @@ class MSGViewController: MessagesViewController{
         FChatRoomListener.shared.clearUnreadCounterUsingChatRoomId(chatRoomId: chatId)
         navigationController?.popViewController(animated: true)
     }
+    
+    
+    // MARK: markMessageAs READ
+    
+    private func markMessageAsRead(_ localMessage: LocalMessage){
+        if localMessage.senderId != User.currentId{
+            FMessageListener.shared.updateMessageStatus(localMessage, userId: recipientId)
+        }
+    }
+    
     
     // MARK: updating typing indicator
     func updateTypingIndicator(show: Bool){
@@ -212,6 +222,50 @@ class MSGViewController: MessagesViewController{
     }
     
     
+    
+    private func actionAttachMessage(){
+        
+        //hide keyboard
+        messageInputBar.inputTextView.resignFirstResponder()
+        
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let takePhotoOrVideo = UIAlertAction(title: "Camera", style: .default) { alert in
+            self.showImageGalery(camera: true)
+        }
+        
+        let showMedia = UIAlertAction(title: "Library", style: .default) { alert in
+            self.showImageGalery(camera: false)
+
+        }
+        
+        let showLocation = UIAlertAction(title: "Location", style: .default) { alert in
+            
+            if let _ = LocationManager.shared.currentLocation{
+                self.send(text: nil, photo: nil, video: nil, audioUrl: nil, location: kLOCATION)
+
+            }
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel , handler: nil)
+        
+        
+        // make some design
+        takePhotoOrVideo.setValue(UIImage(systemName: "camera"), forKey: "image")
+        showMedia.setValue(UIImage(systemName: "photo.fill"), forKey: "image")
+        showLocation.setValue(UIImage(systemName: "mappin.and.ellipse"), forKey: "image")
+        
+        
+        
+        optionMenu.addAction(takePhotoOrVideo)
+        optionMenu.addAction(showMedia)
+        optionMenu.addAction(showLocation)
+        optionMenu.addAction(cancel)
+
+        self.present(optionMenu, animated: true)
+    }
+    
+    
     // MARK: UISCROLLVIEWDELEGATE
     
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -250,12 +304,15 @@ class MSGViewController: MessagesViewController{
                 self.insertMKMessages()
                 self.messagesCollectionView.reloadData()
                 self.messagesCollectionView.scrollToLastItem(animated:true)
+                self.messagesCollectionView.scrollToBottom(animated:true)
+
                 
             case .update(_, _, let insertions, _):
                 for index in insertions{
                     self.insertMKMessage(localMessage: self.allLocalMessages[index])
                     self.messagesCollectionView.reloadData()
                     self.messagesCollectionView.scrollToLastItem(animated:true)
+                    self.messagesCollectionView.scrollToBottom(animated:true)
                 }
                 
             case .error( let error):
@@ -267,6 +324,9 @@ class MSGViewController: MessagesViewController{
     
     
     private func insertMKMessage(localMessage: LocalMessage){
+        
+        markMessageAsRead(localMessage)
+        
         let incoming = Incoming(messageViewController: self)
         let mkMessage = incoming.createMKMessage(localMessage: localMessage)
         self.mkMessages.append(mkMessage)
@@ -325,6 +385,34 @@ class MSGViewController: MessagesViewController{
     }
     
     
+    
+    // MARK: Update Read Status
+    
+    private func updateReadStatus(_ updatedLocalMessage: LocalMessage){
+        for index in 0 ..< mkMessages.count{
+            
+            let tempMessage = mkMessages[index]
+            if updatedLocalMessage.id == tempMessage.messageId{
+                mkMessages[index].status = updatedLocalMessage.status
+                mkMessages[index].readDate = updatedLocalMessage.readDate
+                RealmManager.shared.save(updatedLocalMessage)
+                
+                if mkMessages[index].status == kREAD{
+                    self.messagesCollectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    private func listenForReadStatusUpdates(){
+        FMessageListener.shared.listenForReadStatus(User.currentId, collectionId: chatId) { updateMessage in
+            self.updateReadStatus(updateMessage)
+        }
+    }
+    
+    
+    
+    
     // MARK: Helpers
     private func lastMessageDate() -> Date{
         let lastMessageDate = allLocalMessages.last?.date ?? Date()
@@ -337,4 +425,52 @@ class MSGViewController: MessagesViewController{
         FMessageListener.shared.removeNewMessegeListener()
 
     }
+    
+    // MARK: Gallery
+    
+    private func showImageGalery(camera: Bool){
+        gallery = GalleryController()
+        gallery.delegate = self
+        Config.tabsToShow = camera ? [.cameraTab] : [.imageTab , .videoTab]
+        Config.Camera.imageLimit = 1
+        Config.initialTab = .imageTab
+        Config.VideoEditor.maximumDuration = 30
+        
+        self.present(gallery, animated: true , completion: nil)
+    }
+}
+
+extension MSGViewController: GalleryControllerDelegate{
+    func galleryController(_ controller: Gallery.GalleryController, didSelectImages images: [Gallery.Image]) {
+        if images.count > 0 {
+            images.first!.resolve { image in
+                self.send(text: nil, photo: image, video: nil, audioUrl: nil, location: nil)
+
+            }
+        }
+        
+        
+        controller.dismiss(animated: true)
+
+    }
+    
+    func galleryController(_ controller: Gallery.GalleryController, didSelectVideo video: Gallery.Video) {
+        
+        self.send(text: nil, photo: nil, video: video, audioUrl: nil, location: nil)
+
+        controller.dismiss(animated: true)
+
+    }
+    
+    func galleryController(_ controller: Gallery.GalleryController, requestLightbox images: [Gallery.Image]) {
+        controller.dismiss(animated: true)
+
+    }
+    
+    func galleryControllerDidCancel(_ controller: Gallery.GalleryController) {
+        controller.dismiss(animated: true)
+    }
+    
+    
+    
 }

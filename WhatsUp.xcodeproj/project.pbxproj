@@ -35,6 +35,12 @@
 		04ACD9C82B5D838C00C9EB11 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9C72B5D838C00C9EB11 /* ChatRoom.swift */; };
 		04ACD9CA2B5D8E2A00C9EB11 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9C92B5D8E2A00C9EB11 /* ChatTableViewCell.swift */; };
 		04ACD9CC2B5D94FF00C9EB11 /* ChatRoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9CB2B5D94FF00C9EB11 /* ChatRoomTableViewController.swift */; };
+		04B5A88B2B61179B00F54031 /* PhotoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A88A2B61179B00F54031 /* PhotoMessage.swift */; };
+		04B5A88E2B6132CB00F54031 /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A88D2B6132CB00F54031 /* VideoMessage.swift */; };
+		04B5A8902B61403A00F54031 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A88F2B61403A00F54031 /* LocationManager.swift */; };
+		04B5A8922B6148DA00F54031 /* LocationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A8912B6148DA00F54031 /* LocationMessage.swift */; };
+		04B5A8942B614F9300F54031 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A8932B614F9300F54031 /* MapViewController.swift */; };
+		04B5A8962B61550F00F54031 /* MapAnnotiation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A8952B61550F00F54031 /* MapAnnotiation.swift */; };
 		04D943142B5BC200004C652F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D943132B5BC200004C652F /* SettingsTableViewController.swift */; };
 		04D9431A2B5BF583004C652F /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D943192B5BF583004C652F /* EditProfileTableViewController.swift */; };
 		04D9431C2B5C1D99004C652F /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D9431B2B5C1D99004C652F /* FileStorage.swift */; };
@@ -99,6 +105,12 @@
 		04ACD9C72B5D838C00C9EB11 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		04ACD9C92B5D8E2A00C9EB11 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		04ACD9CB2B5D94FF00C9EB11 /* ChatRoomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewController.swift; sourceTree = "<group>"; };
+		04B5A88A2B61179B00F54031 /* PhotoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMessage.swift; sourceTree = "<group>"; };
+		04B5A88D2B6132CB00F54031 /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
+		04B5A88F2B61403A00F54031 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		04B5A8912B6148DA00F54031 /* LocationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMessage.swift; sourceTree = "<group>"; };
+		04B5A8932B614F9300F54031 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		04B5A8952B61550F00F54031 /* MapAnnotiation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotiation.swift; sourceTree = "<group>"; };
 		04D943132B5BC200004C652F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		04D943192B5BF583004C652F /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		04D9431B2B5C1D99004C652F /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
@@ -181,8 +193,21 @@
 				046FFBA42B5EAEF000919FD4 /* RealmManager.swift */,
 				046FFBA82B5EB2CF00919FD4 /* Outgoing.swift */,
 				042D809A2B5FAADD007F82A1 /* Incoming.swift */,
+				04B5A88C2B6132AD00F54031 /* Media Messages */,
+				04B5A88F2B61403A00F54031 /* LocationManager.swift */,
+				04B5A8952B61550F00F54031 /* MapAnnotiation.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04B5A88C2B6132AD00F54031 /* Media Messages */ = {
+			isa = PBXGroup;
+			children = (
+				04B5A88A2B61179B00F54031 /* PhotoMessage.swift */,
+				04B5A88D2B6132CB00F54031 /* VideoMessage.swift */,
+				04B5A8912B6148DA00F54031 /* LocationMessage.swift */,
+			);
+			path = "Media Messages";
 			sourceTree = "<group>";
 		};
 		04D943152B5BE89E004C652F /* Controller */ = {
@@ -201,6 +226,7 @@
 				04ACD9C92B5D8E2A00C9EB11 /* ChatTableViewCell.swift */,
 				04ACD9CB2B5D94FF00C9EB11 /* ChatRoomTableViewController.swift */,
 				046FFB912B5E707200919FD4 /* MSGViewController.swift */,
+				04B5A8932B614F9300F54031 /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -577,17 +603,23 @@
 				046FFB992B5E9C7000919FD4 /* MessagesLayoutDelegate.swift in Sources */,
 				04D943202B5C51BE004C652F /* Extensions.swift in Sources */,
 				046FFB922B5E707200919FD4 /* MSGViewController.swift in Sources */,
+				04B5A8942B614F9300F54031 /* MapViewController.swift in Sources */,
 				04ACD9C42B5D3BBB00C9EB11 /* UserTableViewController.swift in Sources */,
+				04B5A88E2B6132CB00F54031 /* VideoMessage.swift in Sources */,
 				04ACD9C82B5D838C00C9EB11 /* ChatRoom.swift in Sources */,
 				04D9431A2B5BF583004C652F /* EditProfileTableViewController.swift in Sources */,
 				0493CA1E2B5AB0340095B2BC /* FUserListener.swift in Sources */,
 				046FFB9B2B5E9C8300919FD4 /* MessageCellDelegate.swift in Sources */,
+				04B5A8922B6148DA00F54031 /* LocationMessage.swift in Sources */,
 				046FFBA12B5EA22900919FD4 /* MKSender.swift in Sources */,
 				046FFBA52B5EAEF000919FD4 /* RealmManager.swift in Sources */,
+				04B5A8962B61550F00F54031 /* MapAnnotiation.swift in Sources */,
 				046FFB9D2B5E9C9300919FD4 /* MessagesDisplayDelegate.swift in Sources */,
 				04ACD9CC2B5D94FF00C9EB11 /* ChatRoomTableViewController.swift in Sources */,
+				04B5A88B2B61179B00F54031 /* PhotoMessage.swift in Sources */,
 				9A35A5342502D991000AD4FE /* SceneDelegate.swift in Sources */,
 				0493CA222B5AB0830095B2BC /* User.swift in Sources */,
+				04B5A8902B61403A00F54031 /* LocationManager.swift in Sources */,
 				046FFBA32B5EA36A00919FD4 /* MKMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

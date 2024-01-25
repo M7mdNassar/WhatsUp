@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040E1D7F2B623D3C0089BFCC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E1D7E2B623D3C0089BFCC /* Channel.swift */; };
+		040E1D812B6241410089BFCC /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E1D802B6241410089BFCC /* ChannelTableViewCell.swift */; };
+		040E1D832B6261130089BFCC /* AddChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E1D822B6261130089BFCC /* AddChannelTableViewController.swift */; };
+		040E1D852B626E4E0089BFCC /* FChannelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E1D842B626E4E0089BFCC /* FChannelListener.swift */; };
 		042D809B2B5FAADD007F82A1 /* Incoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D809A2B5FAADD007F82A1 /* Incoming.swift */; };
 		046F1CA42B5D98D2003AD2BF /* Startchat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1CA32B5D98D2003AD2BF /* Startchat.swift */; };
 		046F1CA62B5DA036003AD2BF /* FChatRoomListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1CA52B5DA036003AD2BF /* FChatRoomListener.swift */; };
@@ -28,6 +32,7 @@
 		0493CA222B5AB0830095B2BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493CA212B5AB0830095B2BC /* User.swift */; };
 		0493CA252B5AB3090095B2BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0493CA242B5AB3090095B2BC /* GoogleService-Info.plist */; };
 		04A502AF2B6050C20093DECE /* FtypingListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A502AE2B6050C20093DECE /* FtypingListener.swift */; };
+		04A654C02B62AEF400090910 /* ChannelFollowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A654BF2B62AEF400090910 /* ChannelFollowTableViewController.swift */; };
 		04ACD9BE2B5D1F1B00C9EB11 /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9BD2B5D1F1B00C9EB11 /* StatusTableViewController.swift */; };
 		04ACD9C22B5D3B8C00C9EB11 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9C12B5D3B8C00C9EB11 /* UserTableViewCell.swift */; };
 		04ACD9C42B5D3BBB00C9EB11 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9C32B5D3BBB00C9EB11 /* UserTableViewController.swift */; };
@@ -81,6 +86,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040E1D7E2B623D3C0089BFCC /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		040E1D802B6241410089BFCC /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
+		040E1D822B6261130089BFCC /* AddChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelTableViewController.swift; sourceTree = "<group>"; };
+		040E1D842B626E4E0089BFCC /* FChannelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FChannelListener.swift; sourceTree = "<group>"; };
 		042D809A2B5FAADD007F82A1 /* Incoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Incoming.swift; sourceTree = "<group>"; };
 		046F1CA32B5D98D2003AD2BF /* Startchat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Startchat.swift; sourceTree = "<group>"; };
 		046F1CA52B5DA036003AD2BF /* FChatRoomListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FChatRoomListener.swift; sourceTree = "<group>"; };
@@ -102,6 +111,7 @@
 		0493CA212B5AB0830095B2BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0493CA242B5AB3090095B2BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04A502AE2B6050C20093DECE /* FtypingListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FtypingListener.swift; sourceTree = "<group>"; };
+		04A654BF2B62AEF400090910 /* ChannelFollowTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelFollowTableViewController.swift; sourceTree = "<group>"; };
 		04ACD9BD2B5D1F1B00C9EB11 /* StatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
 		04ACD9C12B5D3B8C00C9EB11 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		04ACD9C32B5D3BBB00C9EB11 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +216,7 @@
 				04B5A8952B61550F00F54031 /* MapAnnotiation.swift */,
 				04B5A8972B617C5D00F54031 /* AudioRecorder.swift */,
 				04B5A89B2B61A0E100F54031 /* BasicAudioController.swift */,
+				040E1D7E2B623D3C0089BFCC /* Channel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +250,9 @@
 				046FFB912B5E707200919FD4 /* MSGViewController.swift */,
 				04B5A8932B614F9300F54031 /* MapViewController.swift */,
 				04B5A89D2B61A8A600F54031 /* ChannelsTableViewController.swift */,
+				040E1D802B6241410089BFCC /* ChannelTableViewCell.swift */,
+				040E1D822B6261130089BFCC /* AddChannelTableViewController.swift */,
+				04A654BF2B62AEF400090910 /* ChannelFollowTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -272,6 +286,7 @@
 				0493CA242B5AB3090095B2BC /* GoogleService-Info.plist */,
 				046FFBA62B5EAFCE00919FD4 /* FMessageListener.swift */,
 				04A502AE2B6050C20093DECE /* FtypingListener.swift */,
+				040E1D842B626E4E0089BFCC /* FChannelListener.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -598,8 +613,10 @@
 				046FFBA72B5EAFCE00919FD4 /* FMessageListener.swift in Sources */,
 				04ACD9C22B5D3B8C00C9EB11 /* UserTableViewCell.swift in Sources */,
 				04B5A89C2B61A0E100F54031 /* BasicAudioController.swift in Sources */,
+				04A654C02B62AEF400090910 /* ChannelFollowTableViewController.swift in Sources */,
 				04ACD9CA2B5D8E2A00C9EB11 /* ChatTableViewCell.swift in Sources */,
 				046F1CA62B5DA036003AD2BF /* FChatRoomListener.swift in Sources */,
+				040E1D812B6241410089BFCC /* ChannelTableViewCell.swift in Sources */,
 				046FFB9F2B5E9CD000919FD4 /* InputBarAccessoryViewDelegate.swift in Sources */,
 				046FFBA92B5EB2CF00919FD4 /* Outgoing.swift in Sources */,
 				9A35A5362502D991000AD4FE /* LoginViewController.swift in Sources */,
@@ -611,6 +628,7 @@
 				9A35A5322502D991000AD4FE /* AppDelegate.swift in Sources */,
 				0493CA1C2B5AB0020095B2BC /* FCollectionReference.swift in Sources */,
 				04D943142B5BC200004C652F /* SettingsTableViewController.swift in Sources */,
+				040E1D7F2B623D3C0089BFCC /* Channel.swift in Sources */,
 				04B5A89E2B61A8A600F54031 /* ChannelsTableViewController.swift in Sources */,
 				046FFB972B5E9C2900919FD4 /* MessagesDataSource.swift in Sources */,
 				046FFB942B5E861F00919FD4 /* LocalMessage.swift in Sources */,
@@ -620,7 +638,9 @@
 				04B5A8942B614F9300F54031 /* MapViewController.swift in Sources */,
 				04ACD9C42B5D3BBB00C9EB11 /* UserTableViewController.swift in Sources */,
 				04B5A88E2B6132CB00F54031 /* VideoMessage.swift in Sources */,
+				040E1D852B626E4E0089BFCC /* FChannelListener.swift in Sources */,
 				04ACD9C82B5D838C00C9EB11 /* ChatRoom.swift in Sources */,
+				040E1D832B6261130089BFCC /* AddChannelTableViewController.swift in Sources */,
 				04D9431A2B5BF583004C652F /* EditProfileTableViewController.swift in Sources */,
 				04B5A89A2B619B1800F54031 /* AudioMessage.swift in Sources */,
 				0493CA1E2B5AB0340095B2BC /* FUserListener.swift in Sources */,

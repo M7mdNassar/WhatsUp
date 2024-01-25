@@ -8,6 +8,7 @@ enum FCollectionReference : String{
     case Chat
     case Message
     case Typing
+    case Channel
 }
 
 // get the refernce of specific collection

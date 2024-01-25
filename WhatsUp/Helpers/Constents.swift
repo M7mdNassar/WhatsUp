@@ -20,3 +20,5 @@ public let kNUMBEROFMESSEGES = 12
 
 public let kSTATUS = "status"
 public let kREADDATE = "readDate"
+public let kADMINID = "adminId"
+public let kMEMBERSIDS = "memberIds"

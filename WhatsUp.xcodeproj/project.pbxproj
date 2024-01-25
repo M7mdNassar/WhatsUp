@@ -33,6 +33,7 @@
 		0493CA252B5AB3090095B2BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0493CA242B5AB3090095B2BC /* GoogleService-Info.plist */; };
 		04A502AF2B6050C20093DECE /* FtypingListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A502AE2B6050C20093DECE /* FtypingListener.swift */; };
 		04A654C02B62AEF400090910 /* ChannelFollowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A654BF2B62AEF400090910 /* ChannelFollowTableViewController.swift */; };
+		04A654C22B62C2FB00090910 /* ChannelMSGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A654C12B62C2FB00090910 /* ChannelMSGViewController.swift */; };
 		04ACD9BE2B5D1F1B00C9EB11 /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9BD2B5D1F1B00C9EB11 /* StatusTableViewController.swift */; };
 		04ACD9C22B5D3B8C00C9EB11 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9C12B5D3B8C00C9EB11 /* UserTableViewCell.swift */; };
 		04ACD9C42B5D3BBB00C9EB11 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACD9C32B5D3BBB00C9EB11 /* UserTableViewController.swift */; };
@@ -112,6 +113,7 @@
 		0493CA242B5AB3090095B2BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04A502AE2B6050C20093DECE /* FtypingListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FtypingListener.swift; sourceTree = "<group>"; };
 		04A654BF2B62AEF400090910 /* ChannelFollowTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelFollowTableViewController.swift; sourceTree = "<group>"; };
+		04A654C12B62C2FB00090910 /* ChannelMSGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelMSGViewController.swift; sourceTree = "<group>"; };
 		04ACD9BD2B5D1F1B00C9EB11 /* StatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
 		04ACD9C12B5D3B8C00C9EB11 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		04ACD9C32B5D3BBB00C9EB11 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				040E1D802B6241410089BFCC /* ChannelTableViewCell.swift */,
 				040E1D822B6261130089BFCC /* AddChannelTableViewController.swift */,
 				04A654BF2B62AEF400090910 /* ChannelFollowTableViewController.swift */,
+				04A654C12B62C2FB00090910 /* ChannelMSGViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				046FFB9B2B5E9C8300919FD4 /* MessageCellDelegate.swift in Sources */,
 				04B5A8922B6148DA00F54031 /* LocationMessage.swift in Sources */,
 				046FFBA12B5EA22900919FD4 /* MKSender.swift in Sources */,
+				04A654C22B62C2FB00090910 /* ChannelMSGViewController.swift in Sources */,
 				046FFBA52B5EAEF000919FD4 /* RealmManager.swift in Sources */,
 				04B5A8962B61550F00F54031 /* MapAnnotiation.swift in Sources */,
 				046FFB9D2B5E9C9300919FD4 /* MessagesDisplayDelegate.swift in Sources */,

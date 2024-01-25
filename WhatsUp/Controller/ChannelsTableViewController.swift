@@ -135,6 +135,7 @@ class ChannelsTableViewController: UITableViewController {
         
         if channelsSegment.selectedSegmentIndex == 0{
             // show chatt in
+            showChat(channel: subscribedChannels[indexPath.row])
         }else if channelsSegment.selectedSegmentIndex == 1{
             //show follow channel view
             showFollowChannelView(channel: allChannels[indexPath.row])
@@ -185,6 +186,13 @@ class ChannelsTableViewController: UITableViewController {
         channelVC.followDelegate = self
         
         self.navigationController?.pushViewController(channelVC, animated: true)
+    }
+    
+    func showChat(channel: Channel){
+        
+        let channelChatView = ChannelMSGViewController(channel: channel)
+    
+        self.navigationController?.pushViewController(channelChatView, animated: true)
     }
 }
 

@@ -54,6 +54,63 @@ class Outgoing{
         FChatRoomListener.shared.updateChatRoom(chatRoomId: chatId, lastMessage: message.message)
     }
     
+    
+    
+    // MARK: This method for Channel Message
+    
+    class func sendChannelMessage(channel : Channel , text:String? , photo:UIImage? , video:Video? , audioUrl: String? , audioDuration: Float = 0.0 , location: String?){
+        
+        
+        let currentUser = User.currentUser!
+        var channel = channel
+        //1. create local message from the datawe have
+        let message = LocalMessage()
+        message.id = UUID().uuidString
+        message.chatRoomId = channel.id
+        message.senderId = currentUser.id
+        message.senderName = currentUser.userName
+        message.senderInitials = String(currentUser.userName.first!)
+        message.date = Date()
+        message.status = kSENT
+        
+        //2. check message type
+        if text != nil {
+            sendText(message: message , text: text!, memberIds : channel.memberIds , channel: channel)
+        }
+        if photo != nil{
+            //function for send photo
+            sendPhoto(message: message, photo: photo!, memberIds : channel.memberIds , channel: channel)
+        }
+        if video != nil{
+            //function for send video
+            sendVideo(message: message, video: video!, memberIds : channel.memberIds , channel: channel)
+        }
+        if audioUrl != nil{
+            //function for send audio
+            sendAudio(message: message, audioFileName: audioUrl!, audioDuration: audioDuration, memberIds : channel.memberIds , channel: channel)
+        }
+        if location != nil{
+            //function for send location
+            sendLocation(message: message, memberIds : channel.memberIds , channel: channel)
+        }
+        //3. save message locally
+        
+        //4. save mesage to firebase
+        
+        
+        // MARK: send notifcation
+        
+        channel.lastMessageDate = Date()
+        //update
+        FChannelListener.shared.saveChannel(channel)
+        
+    }
+    
+    
+    
+    
+    
+    
     class func saveMessage(message: LocalMessage , memberIds:[String]){
         RealmManager.shared.save(message)
         
@@ -62,18 +119,28 @@ class Outgoing{
         }
     }
     
+    
+    class func saveChannelMessage(message: LocalMessage , channel:Channel){
+        RealmManager.shared.save(message)
+        FMessageListener.shared.addChannelMessage(message, channel:channel)
+        
+    }
+    
 }
 
 
-func sendText(message: LocalMessage , text:String , memberIds:[String]){
+func sendText(message: LocalMessage , text:String , memberIds:[String] , channel: Channel? = nil){
     
     message.message = text
     message.type = kTEXT
-    
-    Outgoing.saveMessage(message: message, memberIds: memberIds)
+    if channel != nil{
+        Outgoing.saveChannelMessage(message: message, channel: channel!)
+    }else{
+        Outgoing.saveMessage(message: message, memberIds: memberIds)
+    }
 }
 
-func sendPhoto(message: LocalMessage , photo:UIImage , memberIds:[String]){
+func sendPhoto(message: LocalMessage , photo:UIImage , memberIds:[String] , channel: Channel? = nil){
     
     message.message = "Photo Message"
     message.type = kPHOTO
@@ -87,13 +154,18 @@ func sendPhoto(message: LocalMessage , photo:UIImage , memberIds:[String]){
         
         if imageURL != nil{
             message.pictureUrl = imageURL!
-            Outgoing.saveMessage(message: message, memberIds: memberIds)
+            if channel != nil{
+                Outgoing.saveChannelMessage(message: message, channel: channel!)
+            }else{
+                Outgoing.saveMessage(message: message, memberIds: memberIds)
+            }
+
         }
     }
 }
 
 
-func sendVideo(message:LocalMessage , video: Video , memberIds:[String]){
+func sendVideo(message:LocalMessage , video: Video , memberIds:[String] , channel: Channel? = nil){
     message.message = "Video Message"
     message.type = kVIDEO
     
@@ -117,7 +189,11 @@ func sendVideo(message:LocalMessage , video: Video , memberIds:[String]){
                             
                             message.videoUrl = videoLink ?? ""
                             message.pictureUrl = imageLink ?? ""
-                            Outgoing.saveMessage(message: message, memberIds: memberIds)
+                            if channel != nil{
+                                Outgoing.saveChannelMessage(message: message, channel: channel!)
+                            }else{
+                                Outgoing.saveMessage(message: message, memberIds: memberIds)
+                            }
 
                         }
                     }
@@ -128,7 +204,7 @@ func sendVideo(message:LocalMessage , video: Video , memberIds:[String]){
     }
 
 
-func sendLocation(message: LocalMessage , memberIds: [String]){
+func sendLocation(message: LocalMessage , memberIds: [String] , channel: Channel? = nil){
     let currentLocation = LocationManager.shared.currentLocation
     
     message.message = "Location Message"
@@ -136,10 +212,14 @@ func sendLocation(message: LocalMessage , memberIds: [String]){
     message.latitude = currentLocation?.latitude ?? 0.0
     message.longitude = currentLocation?.longitude ?? 0.0
     
-    Outgoing.saveMessage(message: message, memberIds: memberIds)
+    if channel != nil{
+        Outgoing.saveChannelMessage(message: message, channel: channel!)
+    }else{
+        Outgoing.saveMessage(message: message, memberIds: memberIds)
+    }
 }
 
-func sendAudio(message: LocalMessage , audioFileName: String , audioDuration : Float , memberIds:[String]){
+func sendAudio(message: LocalMessage , audioFileName: String , audioDuration : Float , memberIds:[String] , channel:Channel? = nil){
     
     message.message = "Audio message"
     message.type = kAUDIO
@@ -152,8 +232,12 @@ func sendAudio(message: LocalMessage , audioFileName: String , audioDuration : F
             message.audioUrl = audioLink ?? ""
             message.audioDuration = Double(audioDuration)
             
-            Outgoing.saveMessage(message: message, memberIds: memberIds)
-            
+            if channel != nil{
+                Outgoing.saveChannelMessage(message: message, channel: channel!)
+            }else{
+                Outgoing.saveMessage(message: message, memberIds: memberIds)
+            }
+
         }
     }
 

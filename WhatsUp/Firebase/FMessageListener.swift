@@ -11,6 +11,7 @@ class FMessageListener{
 
     private init(){}
     
+    // for chat 1 vs 1
     func addMessage(_ message : LocalMessage , memberId: String){
         do{
            try FirestoreReference(collectionReference: .Message).document(memberId).collection(message.chatRoomId).document(message.id).setData(from: message)
@@ -20,6 +21,16 @@ class FMessageListener{
         }
     }
     
+    
+    // for chating in channel
+    func addChannelMessage(_ message : LocalMessage , channel: Channel){
+        do{
+            try FirestoreReference(collectionReference: .Message).document(channel.id).collection(channel.id).document(message.id).setData(from: message)
+            
+        }catch{
+            print("error saving message to firebase", error.localizedDescription)
+        }
+    }
     
     // MARK: cheack for old messages
     
@@ -117,6 +128,8 @@ class FMessageListener{
     
     func removeNewMessegeListener(){
         self.newMessageListener.remove()
-        self.updatedMessageListener.remove()
+        if updatedMessageListener != nil {
+            self.updatedMessageListener.remove()
+        }
     }
 }

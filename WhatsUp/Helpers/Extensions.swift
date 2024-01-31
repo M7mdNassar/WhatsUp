@@ -53,15 +53,4 @@ extension Date{
         return Float(end - start)
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

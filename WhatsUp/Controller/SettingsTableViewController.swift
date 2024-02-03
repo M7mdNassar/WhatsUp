@@ -73,10 +73,7 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    func logoutUser(){
-        
-    }
-    
+ 
     // MARK: Table view Delegate
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

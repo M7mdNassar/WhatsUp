@@ -42,8 +42,6 @@ struct User : Codable , Equatable {
     
 }
 
-
-
 func saveUserLocally(user: User) {
     
     let encode = JSONEncoder()

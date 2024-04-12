@@ -32,7 +32,6 @@ class EditProfileTableViewController: UITableViewController {
    
     @IBAction func editProfileButton(_ sender: UIButton) {
         showGallery()
-        
     }
     
     func showUserInfo(){

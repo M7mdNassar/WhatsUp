@@ -12,7 +12,6 @@ struct User : Codable , Equatable {
     var status : String
     
     
-    
     static var currentId : String {
         return Auth.auth().currentUser!.uid
     }

@@ -25,3 +25,19 @@ An iOS application inspired by WhatsApp, providing real-time messaging, user pro
    ```bash
    git clone https://github.com/your-username/ios-whatsapp-clone.git
    cd ios-whatsapp-clone
+
+
+## 👨‍💻 Developer
+
+**Mohammad Nassar**  
+🌍 From Palestine | Software Engineer | Passionate about Mobile Development and AI
+
+📧 **Contact:** m.nassar4004@gmail.com  
+🔗 **LinkedIn:** [Connect with me](https://www.linkedin.com/in/m7mdnassar/)
+
+
+---
+
+## ❤️ Support
+
+If you find this project helpful, please give it a ⭐ on GitHub and share it with others!  

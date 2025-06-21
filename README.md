@@ -1,6 +1,6 @@
 # 📱 WhatsApp-Style iOS App
 
-An iOS application inspired by WhatsApp, providing real-time messaging, user profiles, and public/private channels for group communication. Built with Swift and leveraging modern iOS development best practices.
+An iOS application inspired by WhatsApp, providing real-time messaging, user profiles, and channels for group communication. Built with Swift and leveraging modern iOS development best practices.
 
 ## 🚀 Features
 
